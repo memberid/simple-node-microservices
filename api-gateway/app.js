@@ -6,12 +6,16 @@ const Hapi = require('hapi');
       port: Number(process.argv[2] || 8080)
     });
 
+    await server.register({ plugin: require('h2o2') });
+
     server.route({
-      path: '/{name}',
+      path: '/auth',
       method: 'GET',
-      handler: (request, h) => {
-        console.log('api-gateway running at:', server.info.uri);
-        return `Hello ${request.params.name}`;
+      handler: {
+        proxy: {
+          host: 'nginx',
+          port: '4100',
+        }
       }
     })
 
