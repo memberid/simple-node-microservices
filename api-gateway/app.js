@@ -8,16 +8,28 @@ const Hapi = require('hapi');
 
     await server.register({ plugin: require('h2o2') });
 
-    server.route({
-      path: '/auth',
-      method: 'GET',
-      handler: {
-        proxy: {
-          host: 'nginx',
-          port: '4100',
+    server.route([
+      {
+        path: '/authentication',
+        method: 'GET',
+        handler: {
+          proxy: {
+            host: 'localhost.nginx',    // auth service nginx load balancer host
+            port: '4100',               // auth service nginx load balancer port
+          }
+        }
+      }, 
+      {
+        path: '/inbox',
+        method: 'GET',
+        handler: {
+          proxy: {
+            host: 'inbox',              // inbox service host (not using nginx load balancer)
+            port: '3200',               // inbox service port (not using nginx load balancer)
+          }
         }
       }
-    })
+    ]);
 
     await server.start()
     console.log('api-gateway running at:', server.info.uri);

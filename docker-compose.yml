@@ -1,12 +1,12 @@
 version: '3.1'
 
 services:
-  nginx:
-    container_name: nginx_local
+  localhost.nginx:
+    container_name: localhost.nginx
     image: nginx:alpine
     ports:
-      - "80:80"
-      - "4100:4100"
+      - "80:80"         # port 80 is for external
+      - "4100:4100"     # port 4100 is for auth service load balancer
     volumes:
       - ./nginx:/etc/nginx/conf.d/
   api-gateway1:
