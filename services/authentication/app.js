@@ -10,12 +10,13 @@ const Hapi = require('hapi');
       path: '/{name}',
       method: 'GET',
       handler: (request, h) => {
+        console.log('Server running at:', server.info.uri);
         return `Hello ${request.params.name}`;
       }
     })
 
     await server.start()
-    console.log(`Server running at: ${server.info.uri}`)
+    console.log('Server running at:', server.info.uri);
   } catch (err) {
     console.log(err)
   }

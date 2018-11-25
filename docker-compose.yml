@@ -1,35 +1,57 @@
 version: '3.1'
 
 services:
-  api_gateway:
-    container_name: api_gateway
+  nginx:
+    container_name: nginx_local
     image: nginx:alpine
     ports:
       - "80:80"
+      - "4100:4100"
     volumes:
-      - ./api_gateway/nginx.conf:/etc/nginx/nginx.conf
-      - ./api_gateway/services:/etc/nginx/conf.d/
-  authentication:
-    container_name: authentication_api
-    build: ./authentication
+      - ./nginx:/etc/nginx/conf.d/
+  api-gateway1:
+    container_name: api-gateway
+    build: ./api-gateway
     volumes:
-      - ./authentication:/code:cached
+      - ./api-gateway:/code:cached
       - /code/node_modules
     environment:
       - DOCKER_ENV=docker
     command: npm start 3000
     ports:
       - 3000:3000
-  inbox:
-    container_name: inbox_api
-    build: ./inbox
+  authentication1:
+    container_name: authentication_service1
+    build: ./services/authentication
     volumes:
-      - ./inbox:/code:cached
+      - ./services/authentication:/code:cached
       - /code/node_modules
     environment:
       - DOCKER_ENV=docker
-    command: npm start 3001
+    command: npm start 3100
     ports:
-      - 3001:3001
+      - 3100:3100
+  authentication2:
+    container_name: authentication_service2
+    build: ./services/authentication
+    volumes:
+      - ./services/authentication:/code:cached
+      - /code/node_modules
+    environment:
+      - DOCKER_ENV=docker
+    command: npm start 3101
+    ports:
+      - 3101:3101
+  inbox:
+    container_name: inbox_service
+    build: ./services/inbox
+    volumes:
+      - ./services/inbox:/code:cached
+      - /code/node_modules
+    environment:
+      - DOCKER_ENV=docker
+    command: npm start 3200
+    ports:
+      - 3200:3200
   
   
