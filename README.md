@@ -16,7 +16,7 @@ Karena method semua end point adalah `GET`, untuk mencobanya, buka saja end poin
 
 # Penjelasan
 
-Mari kita lihat diagram sederhana microservice sederhana ini.
+Mari kita lihat diagram sederhana microservice berikut.
 
 ![Microservices](https://github.com/ynwd/simple-node-microservices/blob/master/docs/microservices.svg "Microservices")
 
