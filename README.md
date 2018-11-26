@@ -136,6 +136,18 @@ Microservice ini terdiri dari 2 end-point. `/authentication` & `/login`. Service
 }
 ```
 
+```javascript
+{
+  path: '/login',
+  method: 'GET',
+  handler: {
+    proxy: {
+      uri: `http://localhost.nginx:4100/login` // using gRPC
+    }
+  }
+}
+```
+
 ### Authentitation Load Balancer
 Karena ada kemungkinan mendapatkan trafic yang tinggi, pada service ini ditambakan load-balancer (nginx) yang berjalan di port `4100`
 
