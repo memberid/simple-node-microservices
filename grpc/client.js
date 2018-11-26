@@ -2,7 +2,7 @@
 
 const grpc = require("grpc");
 const protoLoader = require("@grpc/proto-loader");
-const PROTO_PATH = `${__dirname}./../protos/auth.proto`;
+const PROTO_PATH = `${__dirname}./protos/auth.proto`;
 const REMOTE_SERVER = "0.0.0.0:5001";
 
 const packageDefinition = protoLoader.loadSync(
