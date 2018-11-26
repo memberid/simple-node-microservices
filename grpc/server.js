@@ -16,7 +16,6 @@ const packageDefinition = protoLoader.loadSync(
 let proto = grpc.loadPackageDefinition(packageDefinition);
 
 function login(call, callback){
-  console.log('call', call)
   callback(null, {message: 'Hello ' + call.request.username});
 }
 

@@ -1,4 +1,4 @@
-# Simple Microservice dengan Docker, NGINX, gRPC, dan Node.js
+# Simple Microservices with Docker, NGINX, Node.js & gRPC 
 
 Cara menjalankan:
 ```console

@@ -24,7 +24,7 @@ const Hapi = require('hapi');
         method: 'GET',
         handler: {
           proxy: {
-            uri: `http://localhost.nginx:4100/login`
+            uri: `http://localhost.nginx:4100/login` // using gRPC
           }
         }
       }, 
