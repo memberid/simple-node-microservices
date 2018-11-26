@@ -6,7 +6,7 @@ Cara menjalankan:
 ```console
 docker-compose up --build
 ```
-Perintah di atas akan secara otomatis menjalankan script `docker-compose.yml` yang berisi definisi semua server, service, dan package yang diperlukan.
+Perintah di atas akan secara otomatis menjalankan script [`docker-compose.yml`](https://github.com/ynwd/simple-node-microservices/blob/master/docker-compose.yml) yang berisi definisi semua server, service, dan package yang diperlukan.
 
 Karena method semua end point adalah `GET`, untuk mencobanya, buka saja end point berikut:
 1. `http://localhost/authentication`
@@ -149,7 +149,7 @@ Microservice ini terdiri dari 2 end-point. `/authentication` & `/login`. Service
 ```
 
 ### Authentitation Load Balancer
-Karena ada kemungkinan mendapatkan trafic yang tinggi, pada service ini ditambakan load-balancer (nginx) yang berjalan di port `4100`
+Karena ada kemungkinan mendapatkan trafic yang tinggi, pada service ini ditambakan load-balancer (nginx) yang berjalan di port `4100`. Jika trafik ternyata bertambah, dan server tidak kuat, kamu bisa menambahkan entri baru di `upstream authentication`. Jangan lupa server-nya harus disiapkan dulu.
 
 ```apacheconf
 upstream authentication {
