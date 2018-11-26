@@ -91,7 +91,7 @@ server.start();
 Microservice sederhana untuk menangani `GET` request dengan end-point `/inbox`.
 Serive ini berjalan di port `3200`
 
-```json
+```javascript
 {
   path: '/inbox',
   method: 'GET',
@@ -107,7 +107,7 @@ Serive ini berjalan di port `3200`
 ### Users service 
 Microservice sederhana untuk menangani `GET` request dengan end-point `/users/{userId}`. Service ini berjalan di port `3300`
 
-```json
+```javascript
 {
   path: '/users/{userId}',
   method: 'GET',
@@ -123,7 +123,7 @@ Microservice sederhana untuk menangani `GET` request dengan end-point `/users/{u
 ### Authentication service
 Microservice ini terdiri dari 2 end-point. `/authentication` & `/login`. Service ini berjalan di port `4100`. `/authentication` hanya menampilkan teks dg cara sederhana. Sedang endpoint `/login` menampilkan teks yang diperoleh dari gRPC server.
 
-```json
+```javascript
 {
   path: '/authentication',
   method: 'GET',
