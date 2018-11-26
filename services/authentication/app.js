@@ -7,7 +7,7 @@ const Hapi = require('hapi');
     });
 
     server.route({
-      path: '/{name}',
+      path: '/login',
       method: 'GET',
       handler: (request, h) => {
         console.log('Server running at:', server.info.uri);
