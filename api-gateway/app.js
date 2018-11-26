@@ -20,6 +20,15 @@ const Hapi = require('hapi');
         }
       }, 
       {
+        path: '/login',
+        method: 'GET',
+        handler: {
+          proxy: {
+            uri: `http://localhost.nginx:4100/login`
+          }
+        }
+      }, 
+      {
         path: '/inbox',
         method: 'GET',
         handler: {

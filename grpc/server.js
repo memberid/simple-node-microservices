@@ -1,7 +1,7 @@
 const grpc = require("grpc");
 const protoLoader = require("@grpc/proto-loader");
-const PROTO_PATH = `${__dirname}./protos/auth.proto`;
-const SERVER_ADDRESS = "0.0.0.0:5001";
+const PROTO_PATH = `${__dirname}/protos/auth.proto`;
+const SERVER_ADDRESS = "localhost.grpc:5001";
 
 const server = new grpc.Server();
 const packageDefinition = protoLoader.loadSync(

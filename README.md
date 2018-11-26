@@ -1,2 +1,7 @@
-# Simple Microservice dengan Docker, NGINX dan Node.js
+# Simple Microservice dengan Docker, NGINX, gRPC, dan Node.js
+
+Cara menjalankan:
+```console
+docker-compose up --build
+```
 

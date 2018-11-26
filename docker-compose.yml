@@ -9,6 +9,17 @@ services:
       - "4100:4100"     # port 4100 is for auth service load balancer
     volumes:
       - ./nginx:/etc/nginx/conf.d/
+  localhost.grpc:
+    container_name: localhost.grpc
+    build: ./grpc
+    volumes:
+      - ./grpc:/code:cached
+      - /code/node_modules
+    environment:
+      - DOCKER_ENV=docker
+    command: npm start 5001
+    ports:
+      - 5001:5001
   api-gateway1:
     container_name: api-gateway
     build: ./api-gateway
@@ -26,6 +37,7 @@ services:
     volumes:
       - ./services/authentication:/code:cached
       - /code/node_modules
+      - ./grpc/protos:/grpc/protos
     environment:
       - DOCKER_ENV=docker
     command: npm start 3100
@@ -37,6 +49,7 @@ services:
     volumes:
       - ./services/authentication:/code:cached
       - /code/node_modules
+      - ./grpc/protos:/grpc/protos
     environment:
       - DOCKER_ENV=docker
     command: npm start 3101

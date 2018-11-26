@@ -10,6 +10,8 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "@grpc/proto-loader": "^0.3.0",
+    "grpc": "^1.16.1",
     "hapi": "^17.7.0"
   }
 }
