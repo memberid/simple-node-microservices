@@ -28,6 +28,15 @@ const Hapi = require('hapi');
             port: '3200',               // inbox service port (not using nginx load balancer)
           }
         }
+      },
+      {
+        path: '/users/{userId}',
+        method: 'GET',
+        handler: {
+          proxy: {
+            uri: `http://users:3300/users/{userId}`
+          }
+        }
       }
     ]);
 

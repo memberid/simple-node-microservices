@@ -53,5 +53,16 @@ services:
     command: npm start 3200
     ports:
       - 3200:3200
+  users:
+    container_name: users_service
+    build: ./services/users
+    volumes:
+      - ./services/users:/code:cached
+      - /code/node_modules
+    environment:
+      - DOCKER_ENV=docker
+    command: npm start 3300
+    ports:
+      - 3300:3300
   
   

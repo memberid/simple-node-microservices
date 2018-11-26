@@ -7,16 +7,15 @@ const Hapi = require('hapi');
     });
 
     server.route({
-      path: '/{name}',
+      path: '/users/{userId}',
       method: 'GET',
       handler: (request, h) => {
-        console.log('Server running at:', server.info.uri);
-        return `Hello ${request.params.name}`;
+        return `Hello ${request.params.userId}`;
       }
     })
 
     await server.start()
-    console.log('Server running at:', server.info.uri);
+    console.log(`Server running at: ${server.info.uri}`)
   } catch (err) {
     console.log(err)
   }
